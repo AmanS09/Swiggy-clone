@@ -1,0 +1,41 @@
+.login-container {
+    font-size: 2.6rem; /* Equivalent to 62.5% of the default font size (16px) */
+  }
+  
+  /* Adjust the width of the login box */
+  .login-container {
+    width: 25rem; /* Adjust the width as needed */
+    max-width: 100%; /* To ensure the box doesn't exceed the viewport width */
+  }
+  
+  /* Center the login box */
+  .login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Additional styles for form elements */
+  .login-form {
+    width: 100%;
+    max-width: 25rem; /* Adjust the max-width as needed */
+    padding: 1.6rem; /* Equivalent to 1rem at 62.5% font-size */
+  }
+
+  .mb-3 {
+    padding: 0.6rem;
+    font-size: 1.9rem; /* Equivalent to 62.5% of the default font size (16px) */
+  }
+.form-control {
+    font-size: 1.5rem;
+}
+
+.Terms{
+    padding: 0.6rem;
+    font-size: 1.6rem;
+}
+.btn{
+    font-size: 1.7rem;
+}

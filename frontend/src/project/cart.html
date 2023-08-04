@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <style>
+        /* CSS styles for the cart page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .payment-btn {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(index) {
+            // Find the row of the item to be removed
+            const row = document.getElementById(`item-${index}`);
+
+            if (row) {
+                // Remove the row from the DOM
+                row.remove();
+
+                // Retrieve the cart items from storage or any other source
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                // Remove the item at the specified index
+                const removedItem = cartItems.splice(index, 1)[0];
+
+                // Store the updated cart items back in storage or any other desired action
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Optionally, provide feedback to the user about the removed item
+                alert(`Item '${removedItem.name}' has been removed from the cart.`);
+            }
+            
+        }
+
+        // Function to calculate the total price for an item
+        function calculateTotalPrice(item) {
+            const total = item.price * item.quantity;
+            return isNaN(total) ? 0 : total;
+        }
+
+        // Function to increment the quantity of an item
+        function incrementQuantity(index) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const item = cartItems[index];
+            item.quantity++;
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            populateCartItems();
+        }
+
+        // Function to decrement the quantity of an item
+        function decrementQuantity(index) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const item = cartItems[index];
+            if (item.quantity > 1) {
+                item.quantity--;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                populateCartItems();
+            }
+        }
+
+        // Function to populate the cart items in the table
+        function populateCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+
+            // Clear the existing items
+            cartItemsContainer.innerHTML = '';
+
+            // Retrieve the cart items from storage or any other source
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Iterate over the cart items and create table rows for each item
+            cartItems.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.id = `item-${index}`;
+
+                const productName = document.createElement('td');
+                productName.textContent = item.name;
+
+                const price = document.createElement('td');
+                price.textContent = item.price;
+
+                const quantity = document.createElement('td');
+                const quantityContainer = document.createElement('div');
+                quantityContainer.classList.add('quantity-container');
+
+                const decrementBtn = document.createElement('div');
+                decrementBtn.textContent = '-';
+                decrementBtn.classList.add('quantity-btn');
+                decrementBtn.addEventListener('click', () => decrementQuantity(index));
+
+                const quantityValue = document.createElement('span');
+                quantityValue.textContent = item.quantity;
+
+                const incrementBtn = document.createElement('div');
+                incrementBtn.textContent = '+';
+                incrementBtn.classList.add('quantity-btn');
+                incrementBtn.addEventListener('click', () => incrementQuantity(index));
+
+                quantityContainer.appendChild(decrementBtn);
+                quantityContainer.appendChild(quantityValue);
+                quantityContainer.appendChild(incrementBtn);
+                quantity.appendChild(quantityContainer);
+
+                const total = document.createElement('td');
+                total.textContent = calculateTotalPrice(item);
+
+                const deleteCell = document.createElement('td');
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.addEventListener('click', () => removeItem(index));
+                deleteCell.appendChild(deleteBtn);
+
+                row.appendChild(productName);
+                row.appendChild(price);
+                row.appendChild(quantity);
+                row.appendChild(total);
+                row.appendChild(deleteCell);
+
+                cartItemsContainer.appendChild(row);
+            });
+        }
+
+        // Call the function to populate the cart items on page load
+        populateCartItems();
+
+        // Function to add item to cart
+        function addToCart(itemName, price) {
+            // Retrieve the cart items from storage or any other source
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Check if the item already exists in the cart
+            const existingItem = cartItems.find(item => item.name === itemName);
+
+            if (existingItem) {
+                // If the item already exists, increment its quantity
+                existingItem.quantity++;
+            } else {
+                // If the item doesn't exist, create a new item object and add it to the cart
+                const newItem = {
+                    name: itemName,
+                    price: price,
+                    quantity: 1
+                };
+                cartItems.push(newItem);
+            }
+
+            // Store the updated cart items back in storage or any other desired action
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Optionally, you can provide some feedback to the user that the item was added to the cart
+            showNotification();
+
+            // Refresh the cart items in the table
+            populateCartItems();
+        }
+
+        // Function to show pop-up notification and scroll to the top
+        function showNotification() {
+            alert("Item added to cart!");
+            scrollToTop();
+        }
+
+        // Function to handle the payment button click
+        function handlePayment() {
+            // Redirect to the payment page or perform any other desired action
+            window.location.href = "payment.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Cart</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <button class="payment-btn" onclick="handlePayment()">Pay</button>
+
+    <script>
+        // Retrieve the cart items from storage or any other source
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Function to calculate the total price for an item
+        function calculateTotalPrice(item) {
+            if (item.quantity === 0) {
+                return item.price;
+            }
+            const total = item.price * item.quantity;
+            return isNaN(total) ? 0 : total;
+        }
+
+        // Function to populate the cart items in the table
+        function populateCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+
+            // Clear the existing items
+            cartItemsContainer.innerHTML = '';
+
+            // Retrieve the cart items from storage or any other source
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Iterate over the cart items and create table rows for each item
+            cartItems.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.id = `item-${index}`;
+
+                const productName = document.createElement('td');
+                productName.textContent = item.name;
+
+                const price = document.createElement('td');
+                price.textContent = item.price;
+
+                const quantity = document.createElement('td');
+                const quantityContainer = document.createElement('div');
+                quantityContainer.classList.add('quantity-container');
+
+                const decrementBtn = document.createElement('div');
+                decrementBtn.textContent = '-';
+                decrementBtn.classList.add('quantity-btn');
+                decrementBtn.addEventListener('click', () => decrementQuantity(index));
+
+                const quantityValue = document.createElement('span');
+                quantityValue.textContent = item.quantity;
+
+                const incrementBtn = document.createElement('div');
+                incrementBtn.textContent = '+';
+                incrementBtn.classList.add('quantity-btn');
+                incrementBtn.addEventListener('click', () => incrementQuantity(index));
+
+                quantityContainer.appendChild(decrementBtn);
+                quantityContainer.appendChild(quantityValue);
+                quantityContainer.appendChild(incrementBtn);
+                quantity.appendChild(quantityContainer);
+
+                const total = document.createElement('td');
+                total.textContent = calculateTotalPrice(item);
+
+                const deleteCell = document.createElement('td');
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.addEventListener('click', () => removeItem(index));
+                deleteCell.appendChild(deleteBtn);
+
+                row.appendChild(productName);
+                row.appendChild(price);
+                row.appendChild(quantity);
+                row.appendChild(total);
+                row.appendChild(deleteCell);
+
+                cartItemsContainer.appendChild(row);
+            });
+        }
+
+        // Call the function to populate the cart items on page load
+        populateCartItems();
+    </script>
+</body>
+</html>

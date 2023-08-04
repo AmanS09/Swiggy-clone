@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ 
+ <link rel="icon" type="image/svg+xml" href="logo1.jpg" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Swiggato</title>
+  <!-- font awesome cdn link  -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- custom css file link  -->
+ <link rel="stylesheet" href="style.css">
+ <style>
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  margin-block-start: 5px;
+}
+
+ </style>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>    
+<!-- header section starts  -->
+<header>
+    <div class="logo">
+        <div class="logo-container">
+          <img src="logo3.jpg" alt="">
+          <span class="logo-text">Swiggato</span>
+        </div>
+      </div>
+      
+
+      
+
+  <div id="menu-bar" class="fas fa-bars"></div>
+  <nav class="navbar">
+    <a href="#home"><i class="fas fa-home"></i> home</a>
+    <a href="#About Us"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="#speciality"><i class="fas fa-star"></i> speciality</a>
+    <a href="#Menu"><i class="fas fa-utensils"></i> Menu</a>
+    <a href="#gallery"><i class="fas fa-image"></i> gallery</a>
+    <a href="#Healthy Tips"><i class="fas fa-heart"></i> Healthy Tips</a>
+    <a href="cart.html" id="cartLink">
+      <i class="fas fa-shopping-cart">
+        <span id="cartCount">0</span>
+      </i> 
+      cart
+    </a>
+    <style>
+      #cartLink {
+  position: relative;
+}
+
+#cartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+    </style>
+    <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+  
+</header>
+
+
+
+<!-- header section ends -->
+<!-- home section starts  -->
+<section class="home" id="home">
+    <div class="content">
+        <h3>food made with love</h3>
+        <p>The most important ingredient and healing effect in the preparation of all meals and dishes: is Love! It’s always available and free, it causes well being, health, joy, gratitude and satisfaction.</p>
+        <a href="#" class="btn">Welcome</a>
+    </div>
+    <div class="image">
+        <img src="pizza.webp" alt="">
+    </div>
+</section>
+<!-- home section ends -->
+
+<!-- steps section starts  -->
+<div class="step-container">
+  <h1 class="heading">how it <span>works</span></h1>
+  <section class="steps">
+      <div class="box">
+          <img src="step-1.jpg" alt="">
+          <h3>choose your favorite food</h3>
+      </div>
+      <div class="box">
+          <img src="step-2.jpg" alt="">
+          <h3>free and fast delivery</h3>
+      </div>
+      <div class="box">
+          <img src="step-3.jpg" alt="">
+          <h3>easy payments methods</h3>
+      </div>
+      <div class="box">
+          <img src="step-4.jpg" alt="">
+          <h3>and finally, enjoy your food</h3>
+      </div>
+  </section>
+</div>
+<!-- steps section ends -->
+
+<div class="title">
+    <div id="typewriter" class="changing"></div>
+    <div class="sub-title">See restaurants under the Swiggato.</div>
+  </div>
+  <div class="search">
+    <select
+      id="selection"
+      onchange="updateSelection(); document.getElementById('search').href=`./list.html?q=${this.value}`;"
+      class="search-bar"
+      type="text"
+      placeholder="Enter your delivery location"
+    >
+      <option value="" selected style="display: none"
+        >Select your location</option
+      >
+      <option value="11">Ahmedabad</option>
+      <option value="3">Bangalore</option>
+      <option value="7">Chennai</option>
+      <option value="1">Delhi</option>
+      <option value="6">Hyderabad</option>
+      <option value="2">Kolkata</option>
+      <option value="3">Mumbai</option>
+      <option value="5">Pune</option>
+    </select>
+    <a id="search" href="#"
+      ><button
+        disabled
+        id="search-button"
+        class="search-bar search-submit"
+        type="submit"
+      >
+        Search
+      </button></a
+    >
+    <script>
+      function updateSelection() {
+        console.log("lol");
+        if (document.getElementById("selection").value == "") {
+          document.getElementById("search-button").disabled = true;
+        } else {
+          document.getElementById("search-button").disabled = false;
+        }
+      }
+    </script>
+  </div>
+
+<!-- About Us section starts -->
+<section class="About Us" id="About Us">
+    <h1 class="heading"> About <span>Us</span> </h1>
+<div class="about-section">
+    <h1>About The Swiggato</h1>
+    <p>Craving some delicious  food? Maybe you’re in the mood for a juicy steak?
+    No matter what kind of meal you have in mind, The Swiggato is ready to prepare it for you.
+     Since 1973, The Swiggato has been the go-to diner for residents of Binghamton, NY. Our diner serves breakfast all day, in addition to wholesome and flavorful dining options for lunch and dinner. From burgers to salads, seafood to pastas, you’ll find all kinds of hearty meals prepared fresh at The Swiggato. Our diner also has a full bakery with delicious baked goods and other treats, including our famous cheesecake. Sounds delicious, right?.</p>
+  <p>We’re here to serve you the best food around, whenever you’re looking for a great Indian restaurant in India.</p>
+  </div>
+  <h2 style="text-align:center">Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="aman3.jpg" alt="Aman Srivastava" style="width:100%">
+        <div class="container">
+          <h2>Aman Srivastava</h2>
+          <h3 class="title">CEO & Founder</h3>
+          <h3>Amansrivastava@gmail.com</h3>
+          <p><button class="button" onclick="openInstagram()">Contact</button></p>
+        <script>
+         function openInstagram() {
+          window.open('https://www.instagram.com/igsoul_aman/', '_blank');
+          }
+        </script>
+
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="Priyanshu.jpg" alt="Priyanshu Srivastava" style="width:100%">
+        <div class="container">
+          <h2>Priyanshu Srivastava</h2>
+          <h3 class="title">Art Director & Co-founder</h3>
+          <h3>Priyanshusrivastava@gmail</h3>
+          <p><button class="button" onclick="openInstagram1()">Contact</button></p>
+        <script>
+         function openInstagram1() {
+          window.open('https://instagram.com/i_m_priyanshu.09/', '_blank');
+          }
+        </script>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="Pranan.png" alt="Pranav Bansal" style="width:100%">
+        <div class="container">
+          <h2>Pranav Bansal</h2>
+          <h3 class="title">Chairman and Managing Director</h3>
+          <h3>Pranavbansal@gmail.com</h3>
+          <p><button class="button" onclick="openInstagram2()">Contact</button></p>
+        <script>
+         function openInstagram2() {
+          window.open('https://www.instagram.com/pranav106/', '_blank');
+          }
+        </script>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+        <div class="card">
+          <img src="Gaurav.jpg" alt="Gaurav Kumar" style="width:100%">
+          <div class="container">
+            <h2>Gaurav Kumar</h2>
+            <h3 class="title">Head of Investments</h3>
+            <h3>Gauravkumar@gmail</h3>
+            <p><button class="button" onclick="openInstagram3()">Contact</button></p>
+        <script>
+         function openInstagram3() {
+          window.open('https://www.instagram.com/1up_gaurav/', '_blank');
+          }
+        </script>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="Akshay.png" alt="Akshay Pratap Singh" style="width:100%">
+          <div class="container">
+            <h2>Akshay Pratap Singh</h2>
+            <h3 class="title">Designer </h3>
+            <h3>Akshaypratap@gmail</h3>
+            <p><button class="button" onclick="openInstagram4()">Contact</button></p>
+        <script>
+         function openInstagram4() {
+          window.open('https://www.instagram.com/akshay_pratap_786/', '_blank');
+          }
+        </script>
+          </div>
+        </div>
+      </div>
+  </div>
+<!-- About Us section ends -->
+
+
+
+<!------------------------------------------------------------------------------------->
+<div class="sticky-button1">
+  <div class="button1" onclick="toggleMenu()">
+    <img src="menu1.jpeg" alt="Menu Icon" class="menu-icon">
+  </div>
+  <div class="menu" id="menu">
+    <ul>
+      <li>
+        <span class="food-name">Veg Cheese Burger</span>
+        <span class="food-price"> Rs110</span>
+      </li>
+      <li>
+        <span class="food-name">Burrito</span>
+        <span class="food-price">Rs300</span>
+      </li>
+      <li>
+        <span class="food-name">Cakes</span>
+        <span class="food-price">Rs500</span>
+      </li>
+      
+      <li>
+        <span class="food-name">Flavour barfi</span>
+        <span class="food-price"> Rs150</span>
+      </li>
+      <li>
+        <span class="food-name">Chocolate Cupcake </span>
+        <span class="food-price">Rs50</span>
+      </li>
+      <li>
+        <span class="food-name">Tasty burger</span>
+        <span class="food-price">Rs100</span>
+      </li>
+      <li>
+        <span class="food-name">Cold drink   Rs40</span>
+        <span class="food-price">Rs40</span>
+      </li>
+      <li>
+        <span class="food-name">Cold ice-cream</span>
+        <span class="food-price">Rs60</span>
+      </li>
+      <li>
+        <span class="food-name">Paneer sandwich</span>
+        <span class="food-price">Rs120</span>
+      </li>
+      <li>
+        <span class="food-name">Tasty cupcakes</span>
+        <span class="food-price">Rs50</span>
+      </li>
+      <li>
+        <span class="food-name">Crispy Fried Chicken</span>
+        <span class="food-price">Rs450</span>
+      </li>
+      <li>
+        <span class="food-name">Egg Toast</span>
+        <span class="food-price">Rs120</span>
+      </li>
+      <li>
+        <span class="food-name">Tasty sweets</span>
+        <span class="food-price">Rs150</span>
+      </li>
+      <li>
+        <span class="food-name">Chocolate</span>
+        <span class="food-price">Rs50</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+.sticky-button1 {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.button1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+ 
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1);.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+}
+.menu.open {
+  max-height: 300px; 
+  overflow-y:auto;
+}
+.menu li:last-child {
+  border-bottom: none;
+}
+  transition: background-color 0.3s ease;
+}
+.menu {
+  position: absolute;
+  bottom: 100px;
+  left: -250px;
+  width: 200px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: left 0.3s ease;
+}
+
+.menu.open {
+  left: 0;
+}
+.menu li {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+.food-price {
+  color: #ff6f00;
+}
+
+.menu-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+
+</style>
+<script>
+ function toggleMenu(event) {
+  const menu = document.getElementById('menu');
+  const targetElement = event.target;
+
+  if (targetElement.closest('.sticky-button1') && !menu.classList.contains('open')) {
+    menu.classList.add('open');
+  } else if (!targetElement.closest('.menu')) {
+    menu.classList.remove('open');
+  }
+}
+
+window.addEventListener('click', toggleMenu);
+
+
+</script>
+<!------------------------------------------------------------------------------------->
+
+
+<!-- speciality section starts  -->
+<section class="speciality" id="speciality">
+    <h1 class="heading"> our <span>speciality</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <img class="image" src="s-img-1.jpg" alt="">
+            <div class="content">
+                <img src="s-1.png" alt="">
+                <h3>tasty burger</h3>
+                <p>Our mission is to serve a fresh, flavorful, flat patty burger made from the finest Indian Style, while becoming a real part of every neighborhood in which we open.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="s-img-2.jpg" alt="">
+            <div class="content">
+                <img src="s-2.png" alt="">
+                <h3>tasty pizza</h3>
+                <p>Our Pizza has the freshest pizza dough in the city,It’s made every day so that the flavour and texture of the dough are perfect every time you visit.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="s-img-3.jpg" alt="">
+            <div class="content">
+                <img src="s-3.png" alt="">
+                <h3>cold ice-cream</h3>
+                <p>Delicious, creamy, satisfying flavors of Cold Love. Artisanal ice cream, handmade with all-natural ingredients. You can order ice cream online</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="s-img-4.jpg" alt="">
+            <div class="content">
+                <img src="s-4.png" alt="">
+                <h3>cold drinks</h3>
+                <p>You've organized a family get together,no worries! We are here to back you up. Place a cold drink online order at our resturant and our delivery boy will be there at your service</p>
+   </div>
+        </div>
+        <div class="box">
+            <img class="image" src="s-img-5.jpg" alt="">
+            <div class="content">
+                <img src="s-5.png" alt="">
+                <h3>tasty sweets</h3>
+                <p>Here are the best chocolates in our restaurant. Place a tasty sweets online order at our                            resturant and our delivery boy will be there at your servic.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="s-img-6.jpg" alt="">
+            <div class="content">
+                <img src="s-6.png" alt="">
+                                <h3>healty breakfast</h3>
+                <p>Eat healthy breakfast like a king, lunch like a prince, and dinner like a pauper.
+                    Place a healty breakfast online order at our resturant.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- speciality section ends -->
+<!-- Menu section starts  -->
+
+
+<section class="Menu" id="Menu">
+    <h1 class="heading">Menu - Most <span>Popular</span> Foods</h1>
+    <div class="box-container">
+        <div class="box">
+            <span class="price">Rs100</span>
+            <img src="p-1.jpg" alt="">
+            <h3>tasty burger</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+              <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Tasty Burger', 'Rs100')">
+              </div>   
+          </div>
+          
+        <div class="box">
+            <span class="price"> Rs500</span>
+            <img src="p-2.jpg" alt="">
+            <h3>tasty cakes</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+            <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Tasty Cakes', 'R500')">
+              </div> 
+        </div>
+        <div class="box">
+            <span class="price"> Rs150</span>
+            <img src="p-3.jpg" alt="">
+            <h3>tasty sweets</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+            <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Tasty Sweets', 'Rs150')">
+              </div> 
+        </div>
+        <div class="box">
+            <span class="price"> Rs50</span>
+            <img src="p-4.jpg" alt="">
+            <h3>tasty cupcakes</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+            <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Tasty Cupcakes', 'Rs50')">
+              </div> 
+        </div>
+        <div class="box">
+            <span class="price"> Rs40</span>
+            <img src="p-5.jpg" alt="">
+            <h3>cold drinks</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+            <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Cold Drinks', 'Rs40')">
+              </div> 
+        </div>
+        <div class="box">
+            <span class="price"> Rs60</span>
+            <img src="p-6.jpg" alt="">
+            <h3>cold ice-cream</h3>
+            <a href="#Order Now" class="btn">Order Now</a>
+            <div class ="icon">
+                <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Cold Ice Cream', 'Rs60')">
+              </div> 
+        </div>
+    </div>
+</section>
+
+<!-- Rest of the code -->
+
+<script>
+    // Function to add item to cart
+    function addToCart(itemName, price) {
+        // Retrieve the cart items from storage or any other source
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        
+        // Create a new item object
+        const item = {
+            name: itemName,
+            price: price,
+            quantity: 1
+        };
+        
+        // Add the item to the cart
+        cartItems.push(item);
+        
+        // Store the updated cart items back in storage or any other desired action
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+        // Optionally, you can provide some feedback to the user that the item was added to the cart
+        Swal.fire({
+            icon: 'success',
+            title: 'Item added to cart!',
+            showConfirmButton: false,
+            timer: 2000 // Adjust the duration as needed
+        });
+        
+    // Get the current cart count
+    var cartCount = parseInt(document.getElementById("cartCount").innerHTML);
+
+// Increment the cart count by 1
+cartCount++;
+
+// Update the cart count display
+document.getElementById("cartCount").innerHTML = cartCount;
+}
+    
+</script>
+
+
+
+
+
+<!--Menu section ends -->
+
+<!-- gallery section starts  -->
+<section class="gallery" id="gallery">
+    <h1 class="heading">Our Food <span>Gallery</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="g-1.jpg" alt="">
+            <div class="content">
+                <h3>Veg Cheese Burger</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Veg Cheese Burger', 'Rs110')">Order Now</a>
+                <div class ="icon">
+                    <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Veg Cheese Burger', 'Rs110')">
+                  </div> 
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-2.jpg" alt="">
+            <div class="content">
+                <h3>Paneer sandwiches</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Paneer sandwich', 'Rs120')">Order Now</a>
+                <div class ="icon">
+                    <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Paneer sandwich', 'Rs120')">
+                  </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-3.jpg" alt="">
+            <div class="content">
+                <h3>Burrito</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Burrito', 'Rs300')">Order Now</a>
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Burrito', 'Rs300')">
+                </div>   
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-4.jpg" alt="">
+            <div class="content">
+                <h3>Chocolate Cupcake</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Chocolate Cupcake', 'Rs50')">Order Now</a>
+
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Chocolate Cupcake', 'Rs50')">
+                </div> 
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-5.jpg" alt="">
+            <div class="content">
+                <h3>Flavour barfi</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Flavour barfi', 'Rs150')">Order Now</a>
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Flavour barfi', 'Rs150')">
+                </div> 
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-6.jpg" alt="">
+            <div class="content">
+                <h3>Crispy Fried Chicken</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('crispy Fried Chicken', 'Rs450')">Order Now</a>
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('crispy Fried Chicken', 'Rs450')">
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="g-7.jpg" alt="">
+            <div class="content">
+                <h3>Egg Toast</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Egg Toast', 'Rs120')">Order Now</a>
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Egg Toast', 'Rs120')">
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <img src="g-8.jpg" alt="">
+            <div class="content">
+                <h3>Chocolate</h3>
+                <p>The chief ingredient in yummy food is love.</p>
+                <a href="#Order Now" class="btn" onclick="orderNow('Chocolate', 'Rs50')">Order Now</a>
+                <div class ="icon">
+                  <img src="cart.png" alt="Add" style="width: 4.7rem; height: 4.7rem; border-radius: 50%;" onclick="addToCart('Chocolate', 'Rs50')">
+                </div>
+            </div>
+    </div>
+</section>
+<script>
+  // Function to handle clicking on "Order Now" button
+function orderNow(foodName, price) {
+  const foodNameInput = document.querySelector('input[placeholder="food name"]');
+  const priceInput = document.querySelector('input[placeholder="price"]');
+  
+  // Set the food name and price in the input fields
+  foodNameInput.value = foodName;
+  priceInput.value = price;
+}
+
+
+
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    updateCartCount(cartItems.length);
+  });
+
+  // Function to update the cart count display and store it in localStorage
+  function updateCartCount(count) {
+    const cartCountElement = document.getElementById('cartCount');
+    cartCountElement.textContent = count;
+  }
+
+  // Function to add item to cart
+  function addToCart(itemName, price) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    const item = {
+      name: itemName,
+      price: price,
+      quantity: 1
+    };
+
+    cartItems.push(item);
+
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    updateCartCount(cartItems.length);
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Item added to cart!',
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+
+  function navigateBack() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    updateCartCount(cartItems.length);
+  }
+
+  window.addEventListener('beforeunload', () => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartCount = cartItems.length;
+    localStorage.setItem('cartCount', cartCount);
+  });
+</script>
+
+
+<!-- gallery section ends -->
+<!-- healthy tips section starts  -->
+<section class="Healthy Tips" id="Healthy Tips">
+    <h1 class="heading"> <span>Healthy Tips</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="ashok.jpg" alt="">
+            <h3>ASHOK MITTAL</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Start your morning off right with a big glass of water. After fasting all night, this first drink of water will help to hydrate your cells and wake you up.</p>
+        </div>
+        <div class="box">
+            <img src="rashmi.jpg" alt="">
+            <h3>RASHMI MITTAL</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Making your meals ahead of time will end up saving you plenty of time and stress in the long run!.</p>
+        </div>
+        <div class="box">
+            <img src="aman.jpg" alt="">
+            <h3>Aman Mittal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Sleep is an important part of health and if you don’t get enough of it, it can negatively impact your energy levels, motivation, concentration, and even appetite regulation.</p>
+        </div>
+    </div>
+</section>
+<!-- healthy tips section ends -->
+<!-- contact us section starts  -->
+<section class="Order Now" id="Order Now">
+  <h1 class="heading"><span>Order</span> Now</h1>
+  <div class="row">
+    <div class="image">
+      <img src="order-img.jpg" alt="">
+    </div>
+    <form action="">
+      <div class="inputBox">
+        <input type="text" placeholder="name">
+        <input type="email" placeholder="email">
+      </div>
+      <div class="inputBox">
+        <input type="number" placeholder="number">
+        <input type="text" placeholder="food name">
+        <input type="text" placeholder="price" style="border: 2px solid green; color: green;">
+      </div>
+      <textarea placeholder="address" name="" id="" cols="30" rows="10"></textarea>
+      <a href="payment.html" class="btn">Pay</a>
+    </form>
+  </div>
+</section>
+
+<!--Contact Us section ends -->
+<!-- footer section  -->
+<section class="footer">
+    <div class="share">
+        <a href="#" class="btn" onclick="openInstagram1()" target="_blank">facebook</a>
+        <a href="#" class="btn" onclick="openInstagram2()" target="_blank">twitter</a>
+        <a href="#" class="btn" onclick="openInstagram3()" target="_blank">instagram</a>
+        <a href="#" class="btn" onclick="openInstagram4()" target="_blank">pinterest</a>
+        <a href="#" class="btn" onclick="openInstagram()" target="_blank">linkedin</a>
+    </div>
+</section>
+<!-- scroll top button  -->
+<a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+
+<!-- custom js file link  -->
+<script src="script.js"></script>
+<script type="module" src="./app.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#logoutLink').click(function(e) {
+            e.preventDefault(); // Prevent the default link behavior
+            window.location.href = 'home.html'; // Redirect to home.html
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
